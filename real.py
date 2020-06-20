@@ -7,7 +7,7 @@ from urllib import response, request, parse
 import time 
 import concurrent.futures
 
-t1 = time.perf_counter()
+
 
 # geting the html from the site
 
@@ -36,6 +36,7 @@ fu = source_finder()
 fu.feed(html_string)
 print(fu.list)
 
+t1 = time.perf_counter()
 def download_image(url):
     img_bytes = requests.get(url).content
     img_name = url.split('/')[7]
@@ -52,3 +53,4 @@ with concurrent.futures.ThreadPoolExecutor() as exe:
 
 t2 = time.perf_counter()
 print(f'THE CODE FINISHED IN {round(t2-t1)} seconds .....')
+
